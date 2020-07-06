@@ -86,7 +86,7 @@ INSERT INTO `produit` (`id`, `nom_produit`, `prix_produit`, `quantité`, `catego
 (1, 'FFP1', 0.79, 5000, 'Masque'),
 (2, 'FFP2', 0.89, 5000, 'Masque'),
 (3, 'FFP3', 0.95, 5000, 'Masque'),
-(4, 'Chir. 3 plis', 0.29, 493, 'Masque'),
+(4, 'Chir. 3 plis', 0.29, 5000, 'Masque'),
 (5, 'FFP2 Pliable', 0.89, 5000, 'Masque'),
 (6, 'FFP3 Pliable', 0.95, 5000, 'Masque'),
 (7, 'Type 1', 59.99, 500, 'Parois'),
