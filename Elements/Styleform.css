@@ -24,3 +24,15 @@
     /*border: 0.1em outset #343A40;
     padding: 0.3em;*/
 }
+
+
+h1{
+    color: #044463; 
+}
+
+.sendfile{
+    border: 1px solid #343A40;
+    border-radius: 5px;
+    background-color: #D0E3FA;
+    text-align: center; 
+}

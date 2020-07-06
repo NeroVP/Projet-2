@@ -1,19 +1,26 @@
+<?php 
+if(!isset($_SESSION)){
+   session_start(); //initialisation de la session (!!!!à faire avant le code html!!!!)
+}
+if(empty($_SESSION)){
+//vérification de connexion
+   echo "<script type='text/javascript'>alert('Vous devez vous connecter pour accéder à cette page'); </script>";
+   echo "<script type='text/javascript'>window.location.replace('http://localhost/Projet-2/Accueil_et_Mentions_légales/Index.php');</script>";
+   
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="/projet-2/Elements/Style.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <title>Les conditions générales de ventes</title>
+      <?php require_once("../Elements/Header.php")?>
+      <link rel="stylesheet" href="../Elements/Style.css">
+
+      <title>Les conditions générales de ventes</title>
 </head>
 <header>
         <?php 
         /*require_once("../boutique/bdd.php");*/
-        require_once("../Elements/menu.php"); ?>
+        require_once("../Elements/menu_connected.php"); ?>
 </header>
 <body>
  <div class="box">
@@ -24,7 +31,7 @@
  <li> la société Associations d’école d'ingénieurs du CESI</li>
  <li> située à : 93 Boulevard de la Seine, 92000 Nanterre</li>
  <li> adresse URL du site : <a href="https://www.cesi.fr">https://www.cesi.fr</a></li>
- <li>adresse mail : <a href="/projet-2/Fonctionnalités_Site/contact.php">kevin.meffodong@viacesi.fr</a></li>
+ <li>adresse mail : <a href="../Fonctionnalites_Site/contact.php">kevin.meffodong@viacesi.fr</a></li>
  <li>téléphone : 01 55 17 80 00</li>
  Le client déclare avoir pris connaissance et avoir accepté les conditions générales de vente antérieurement à la passation de la commande. La validation de la commande vaut donc acceptation des conditions générales de vente.
  <br><br>Article 1 - Contenu et champ d'application
@@ -189,6 +196,6 @@
 </div>
 </body>
 <footer>
-        <?php require_once("../Elements/footer.php"); ?>
+        <?php require_once("../Elements/footer_connected.php"); ?>
 </footer>
 </html>

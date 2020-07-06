@@ -1,42 +1,110 @@
 body 
 {
-background: url('https://img.huffingtonpost.com/asset/5ea3e72b220000f00a827a23.jpeg?cache=xGwii2ni9W&ops=scalefit_630_noupscale');
-background-attachment: fixed;
-background-size: cover;
-margin: 0;
-padding: 0;
-height: 100vh;
+    background: url('https://img.huffingtonpost.com/asset/5ea3e72b220000f00a827a23.jpeg?cache=xGwii2ni9W&ops=scalefit_630_noupscale');
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
 }
+
 .box
 {
-display: block;
-margin-left: auto;
-margin-right: auto;
-position: relative;
-margin-top: 100px;
-padding: 150px;
-background: rgba(255,255,255, .2);
-box-shadow: 0 5px 15px rgba(0,0,0, .5);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin-top: 100px;
+    padding: 150px;
+    background: rgba(255,255,255, .2);
+    box-shadow: 0 5px 15px rgba(0,0,0, .5);
 }
 
 h1
 {
-font-size: 68px;
-color: #044463;
-text-align: center;    
+    font-size: 68px;
+    color: #044463;
+    text-align: center;    
 }
 
 .p1
 {
-font-size: 28px;
-text-align: center; 
+    font-size: 28px;
+    text-align: center; 
 }
 
 .p2
 {
-font-size: 18px;
-text-align: center; 
+    font-size: 18px;
+    text-align: center; 
 }
+
+.total_commande
+{
+    border: 1px solid #343A40;
+    border-radius: 5px;
+    padding: 5px;
+    padding-bottom: 10px;
+    background-color: #ffffff;
+    font-size: 28px;
+    text-align: center; 
+}
+
+.tabcommande{
+    border: medium solid #343A40;
+    border-collapse: collapse;
+    width: 50%;
+}
+
+.tabcommande th{
+    font-family: monospace;
+    border: thin solid #343A40;
+    width: 33%;
+    padding: 5px;
+    background-color: #D0E3FA;
+}
+
+.return{
+    border: 3px solid #343A40;
+    border-radius: 5px;
+    padding: 5px;
+    padding-bottom: 10px;
+    background-color: #D0E3FA;
+    font-size: 28px;
+    color: #343A40;
+    text-align: center; 
+} 
+
+.payer{
+    border: 1px solid #343A40;
+    border-radius: 5px;
+    padding: 5px;
+    padding-bottom: 10px;
+    background-color: #D0E3FA;
+    font-size: 28px;
+    text-align: center; 
+}
+
+.recalcul{
+    border: 1px solid #343A40;
+    border-radius: 5px;
+    padding: 5px;
+    padding-bottom: 8px;
+    background-color: #D0E3FA;
+    font-size: 26px;
+    text-align: center; 
+}
+
+.paypal{
+    border: 1px solid #343A40;
+    border-radius: 5px;
+    padding: 5px;
+    padding-bottom: 8px;
+    background-image: url(../img/paypal.png);
+    width: 160px;
+    height: 30px;
+}
+
 
 @media screen and (max-width: 799px)
 {

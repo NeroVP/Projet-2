@@ -21,10 +21,16 @@
                 <input id="passwordsignup" name="motdepasse" required="required" type="password" placeholder="Mot de passe"/>
             </p>
 
-            <?php //Addresse mail ?>
+            <?php //Adresse mail ?>
             <p>
                 <label class="" data-icon="p" ></label>
                 <input id="mailsignup" name="email" required="required" type="email" placeholder="E-Mail"/>
+            </p>
+
+            <?php //Numéro de teléphone ?>
+            <p>
+                <label class="firstname" data-icon="u" ></label>
+                <input id="usernamesignup" name="num" required="required" type="text" placeholder="Numéro de téléphone" />
             </p>
 
             <?php //Adresse ?>

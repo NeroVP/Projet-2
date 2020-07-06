@@ -1,10 +1,12 @@
 <?php
 if(!isset($_SESSION)){
-    session_start(); //initialisation de la session (!!!!à faire avant le code html!!!!)
+        session_start(); //initialisation de la session (!!!!à faire avant le code html!!!!)
 }
-if(!empty($_SESSION)){
-    //On vide la session si l'utilisateur ne se déconnecte pas avec le bouton
-    $_SESSION = array();
+if(empty($_SESSION)){
+        //vérification de connexion
+        echo "<script type='text/javascript'>alert('Vous devez vous connecter pour accéder à cette page'); </script>";
+        echo "<script type='text/javascript'>window.location.replace('http://localhost/Projet-2/Accueil_et_Mentions_légales/Index.php');</script>";
+        
 }
 ?>
 <!DOCTYPE html>
@@ -19,7 +21,7 @@ if(!empty($_SESSION)){
 <header>
         <?php 
         /*require_once("../boutique/bdd.php");*/
-        require_once("../Elements/menu.php"); ?>
+        require_once("../Elements/menu_connected.php"); ?>
 </header>
 <body>
  <div class="box">
@@ -49,6 +51,6 @@ Les admins sont à votre disposition pour tous vos commentaires ou suggestions. 
 </div>
 </body>
 <footer>
-        <?php require_once("../Elements/footer.php"); ?>
+        <?php require_once("../Elements/footer_connected.php"); ?>
 </footer>
 </html>

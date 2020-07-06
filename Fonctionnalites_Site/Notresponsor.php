@@ -11,20 +11,22 @@ if(!empty($_SESSION)){
 <html lang="fr">
 <head>
         <?php require_once("../Elements/Header.php")?>
-        <link rel="stylesheet" href="http://localhost/Projet-2/Elements/Styleform.css">
+        <link rel="stylesheet" href="../Elements/Style.css">
 
-        <title>Inscription</title>
+
+        <title>Notre Sponsor</title>
 </head>
 <header>
         <?php 
         /*require_once("../boutique/bdd.php");*/
         require_once("../Elements/menu.php"); ?>
 </header>
-<body id="breg">
-    <?php
-        require("./Inscription.php");
-    ?>
+
+<body>
+<div class="box">
+</div>
 </body>
+
 <footer>
         <?php require_once("../Elements/footer.php"); ?>
 </footer>
