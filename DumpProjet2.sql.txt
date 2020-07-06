@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  ven. 03 juil. 2020 à 13:06
+-- Généré le :  lun. 06 juil. 2020 à 09:42
 -- Version du serveur :  10.4.10-MariaDB
 -- Version de PHP :  7.3.12
 
@@ -30,19 +30,20 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `admins`;
 CREATE TABLE IF NOT EXISTS `admins` (
-  `Nom` varchar(300) NOT NULL,
-  `Adresse_mail` varchar(300) NOT NULL,
-  `Num_telephone` int(50) NOT NULL,
-  `mot_de_passe` varchar(10000) DEFAULT NULL
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `Nom` varchar(255) COLLATE utf8_bin NOT NULL,
+  `Prenom` varchar(255) COLLATE utf8_bin NOT NULL,
+  `Mots_de_passe` varchar(255) COLLATE utf8_bin NOT NULL,
+  `Email` varchar(255) COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Déchargement des données de la table `admins`
 --
 
-INSERT INTO `admins` (`Nom`, `Adresse_mail`, `Num_telephone`, `mot_de_passe`) VALUES
-('Meffodong Kevin', 'kevin.meffodong@viacesi.fr', 782499184, NULL),
-('Perrier Valentin', 'valentin.perrier@viacesi.fr', 6060606, NULL);
+INSERT INTO `admins` (`id`, `Nom`, `Prenom`, `Mots_de_passe`, `Email`) VALUES
+(4, 'Perrier', 'Valentin', '1795f86a49ac810cf73714c4d1bec7c7e6586ee1', 'valentin.perrier@viacesi.fr');
 
 -- --------------------------------------------------------
 
@@ -52,45 +53,14 @@ INSERT INTO `admins` (`Nom`, `Adresse_mail`, `Num_telephone`, `mot_de_passe`) VA
 
 DROP TABLE IF EXISTS `commande`;
 CREATE TABLE IF NOT EXISTS `commande` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(200) NOT NULL,
-  `prenom` varchar(200) NOT NULL,
-  `email` varchar(200) NOT NULL,
-  `Numero_tel` varchar(255) NOT NULL,
-  `Adresse` varchar(255) NOT NULL,
-  `Code_postal` varchar(255) NOT NULL,
-  `Ville` varchar(255) NOT NULL,
-  `produit` varchar(1000) NOT NULL,
+  `id` int(255) NOT NULL AUTO_INCREMENT,
+  `id_utilisateur` int(255) NOT NULL,
+  `id_produit` int(255) NOT NULL,
   `prix` float NOT NULL,
-  `id_produit` int(11) NOT NULL,
-  `quantite` int(11) NOT NULL,
-  `prix_total` int(11) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=184 DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `panier`
---
-
-DROP TABLE IF EXISTS `panier`;
-CREATE TABLE IF NOT EXISTS `panier` (
-  `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(255) NOT NULL,
-  `prenom` varchar(255) NOT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `numero_tel` varchar(255) NOT NULL,
-  `adresse` varchar(255) NOT NULL,
-  `code_postal` varchar(255) NOT NULL,
-  `ville` varchar(255) NOT NULL,
-  `produit` varchar(255) NOT NULL,
-  `prix` float NOT NULL DEFAULT 0,
-  `id_produit` int(11) DEFAULT NULL,
-  `quantite` int(11) NOT NULL,
-  `prix_total` int(11) NOT NULL,
-  PRIMARY KEY (`Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=184 DEFAULT CHARSET=latin1;
+  `quantite` int(255) NOT NULL,
+  `total` float NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=58 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
@@ -100,30 +70,30 @@ CREATE TABLE IF NOT EXISTS `panier` (
 
 DROP TABLE IF EXISTS `produit`;
 CREATE TABLE IF NOT EXISTS `produit` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `id` int(11) NOT NULL,
   `nom_produit` varchar(255) NOT NULL,
-  `prix_produit` float(11) NOT NULL DEFAULT 0,
+  `prix_produit` float NOT NULL DEFAULT 0,
   `quantité` int(10) NOT NULL,
   `categorie` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `produit`
 --
 
 INSERT INTO `produit` (`id`, `nom_produit`, `prix_produit`, `quantité`, `categorie`) VALUES
-(1, 'FFP1', 0.79, 500, 'Masque'),
-(2, 'FFP2', 0.89, 500, 'Masque'),
-(3, 'FFP3', 0.95, 500, 'Masque'),
-(4, 'Chirurgical 3 plis', 0.29, 500, 'Masque'),
-(5, 'FFP2 Pliable', 0.89, 500, 'Masque'),
-(6, 'FFP3 Pliable', 0.95, 500, 'Masque'),
+(1, 'FFP1', 0.79, 5000, 'Masque'),
+(2, 'FFP2', 0.89, 5000, 'Masque'),
+(3, 'FFP3', 0.95, 5000, 'Masque'),
+(4, 'Chir. 3 plis', 0.29, 493, 'Masque'),
+(5, 'FFP2 Pliable', 0.89, 5000, 'Masque'),
+(6, 'FFP3 Pliable', 0.95, 5000, 'Masque'),
 (7, 'Type 1', 59.99, 500, 'Parois'),
 (8, 'Type 2', 69.99, 500, 'Parois'),
 (9, 'Type 3', 79.99, 500, 'Parois'),
-(10, 'Epais', 0.15, 500, 'Gants'),
-(11, 'Fins', 0.10, 500, 'Gants');
+(10, 'Epais', 0.15, 2000, 'Gants'),
+(11, 'Fins', 0.1, 2000, 'Gants');
 
 -- --------------------------------------------------------
 
@@ -143,8 +113,8 @@ CREATE TABLE IF NOT EXISTS `utilisateur` (
   `Code_postal` varchar(255) COLLATE utf8_bin NOT NULL,
   `Ville` varchar(255) COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
-COMMIT;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
